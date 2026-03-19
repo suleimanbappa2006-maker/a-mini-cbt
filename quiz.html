@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Quiz</title>
+</head>
+<body>
+    <h2>Answer all questions</h2>
+
+    <form method="POST">
+        {% for q in questions %}
+            <p>{{ loop.index }}. {{ q.text }}</p>
+
+            {% for option in q.options %}
+                <input type="radio" name="q{{ loop.parent.index0 }}" value="{{ option }}" required>
+                {{ option }} <br>
+            {% endfor %}
+        {% endfor %}
+
+        <br>
+        <button type="submit">Submit</button>
+    </form>
+</body>
+</html>
